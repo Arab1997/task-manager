@@ -1,4 +1,4 @@
-package tk.esume.taskmanager
+package tk.esume.taskmanager.presentation.activities
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -10,6 +10,7 @@ import co.zsmb.materialdrawerkt.builders.drawer
 import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import co.zsmb.materialdrawerkt.draweritems.profile.profile
 import kotlinx.android.synthetic.main.activity_main.*
+import tk.esume.taskmanager.R
 
 class MainActivity : AppCompatActivity() {
 
