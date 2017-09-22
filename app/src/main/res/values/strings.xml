@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Task Manager</string>
     <string name="action_settings">Settings</string>
+
+    <string name="inbox_menu_item">Входящие</string>
+    <string name="today_menu_item">Сегодня</string>
+    <string name="week_menu_item">Следующие 7 дней</string>
+    <string name="projects_menu_item">Проекты</string>
+    <string name="settings_menu_item">Настройки</string>
 </resources>
