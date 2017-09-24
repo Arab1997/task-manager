@@ -7,4 +7,8 @@
     <string name="week_menu_item">Следующие 7 дней</string>
     <string name="projects_menu_item">Проекты</string>
     <string name="settings_menu_item">Настройки</string>
+    <string name="title_activity_task_edit">TaskEditActivity</string>
+    <string name="task_hint">Задача</string>
+    <string name="project_hint">Проект</string>
+    <string name="due_date">Срок выполнения</string>
 </resources>
