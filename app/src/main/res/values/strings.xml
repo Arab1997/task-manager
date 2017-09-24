@@ -10,5 +10,7 @@
     <string name="title_activity_task_edit">TaskEditActivity</string>
     <string name="task_hint">Задача</string>
     <string name="project_hint">Проект</string>
-    <string name="due_date">Срок выполнения</string>
+    <string name="due_date_hint">Срок выполнения</string>
+    <string name="done_button_label">Выполнено</string>
+    <string name="delete_button_label">Удалить</string>
 </resources>
