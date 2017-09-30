@@ -13,4 +13,8 @@
     <string name="due_date_hint">Срок выполнения</string>
     <string name="done_button_label">Выполнено</string>
     <string name="delete_button_label">Удалить</string>
+
+    <string name="set_time">Время</string>
+    <string name="cancel">Отмена</string>
+    <string name="ok">Ок</string>
 </resources>
