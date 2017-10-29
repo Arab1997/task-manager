@@ -13,19 +13,27 @@ import co.zsmb.materialdrawerkt.draweritems.profile.profile
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.startActivity
+import tk.esume.taskmanager.App
 import tk.esume.taskmanager.R
 import tk.esume.taskmanager.domain.models.Task
 import tk.esume.taskmanager.presentation.InboxView
 import tk.esume.taskmanager.presentation.adapters.TasksRecyclerViewAdapter
 import tk.esume.taskmanager.presentation.presenters.InboxPresenter
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), InboxView {
 
-    private val presenter = InboxPresenter()
-    private val tasksAdapter = TasksRecyclerViewAdapter(this)
+    @Inject
+    lateinit var presenter: InboxPresenter
+
+    @Inject
+    lateinit var tasksAdapter: TasksRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        App.appComponent.inject(this)
+
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 

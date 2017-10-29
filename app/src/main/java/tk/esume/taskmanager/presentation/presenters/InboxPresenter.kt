@@ -2,6 +2,7 @@ package tk.esume.taskmanager.presentation.presenters
 
 import tk.esume.taskmanager.domain.models.Task
 import tk.esume.taskmanager.presentation.InboxView
+import java.util.*
 
 class InboxPresenter : BasePresenter<InboxView>() {
 
@@ -10,9 +11,9 @@ class InboxPresenter : BasePresenter<InboxView>() {
 
         view?.apply {
             val tasksList = listOf(
-                Task("Task 1"),
+                Task("Task 1", Date()),
                 Task("Task 2"),
-                Task("Task 3")
+                Task("Task 3", Date())
             )
             showTasks(tasksList)
         }

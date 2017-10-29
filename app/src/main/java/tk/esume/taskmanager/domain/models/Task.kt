@@ -4,6 +4,6 @@ import java.util.*
 
 data class Task(
     var title: String = "",
-    var date: Date = Date(),
+    var date: Date? = null,
     var done: Boolean = false
 )
