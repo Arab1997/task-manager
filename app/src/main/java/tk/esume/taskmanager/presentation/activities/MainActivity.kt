@@ -3,6 +3,7 @@ package tk.esume.taskmanager.presentation.activities
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import co.zsmb.materialdrawerkt.builders.accountHeader
@@ -10,10 +11,18 @@ import co.zsmb.materialdrawerkt.builders.drawer
 import co.zsmb.materialdrawerkt.draweritems.badgeable.primaryItem
 import co.zsmb.materialdrawerkt.draweritems.profile.profile
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.startActivity
 import tk.esume.taskmanager.R
+import tk.esume.taskmanager.domain.models.Task
+import tk.esume.taskmanager.presentation.InboxView
+import tk.esume.taskmanager.presentation.adapters.TasksRecyclerViewAdapter
+import tk.esume.taskmanager.presentation.presenters.InboxPresenter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), InboxView {
+
+    private val presenter = InboxPresenter()
+    private val tasksAdapter = TasksRecyclerViewAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +58,28 @@ class MainActivity : AppCompatActivity() {
                 icon = R.drawable.ic_settings_black_24dp
             }
         }
+
+        tasksView.layoutManager = LinearLayoutManager(this)
+        tasksView.adapter = tasksAdapter
+        presenter.onViewCreated(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        presenter.onViewResumed()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        presenter.onViewPaused()
+    }
+
+    override fun onDestroy() {
+        presenter.onViewDestroyed()
+
+        super.onDestroy()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,5 +97,9 @@ class MainActivity : AppCompatActivity() {
         return if (id == R.id.action_settings) {
             true
         } else super.onOptionsItemSelected(item)
+    }
+
+    override fun showTasks(tasks: List<Task>) {
+        tasksAdapter.items = tasks
     }
 }
